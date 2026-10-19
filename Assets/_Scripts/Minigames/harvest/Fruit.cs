@@ -1,3 +1,4 @@
+using LD60Tec.Commons.Singletons;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,8 @@ namespace LD60Tec.Minigames.Harvest
     {
         public SpriteRenderer Spriterender {  get; private set; }
         public event Action<Fruit> OnFruitClick;
+        [SerializeField]
+        private GameObject _audio;
 
         private void Awake()
         {
@@ -25,6 +28,7 @@ namespace LD60Tec.Minigames.Harvest
 
                 if (hit.collider != null && hit.collider.gameObject == gameObject)
                 {
+                    SoundPool.PlayAt(_audio, transform.position);
                     OnFruitClick?.Invoke(this);
                     gameObject.SetActive(false);
                 }

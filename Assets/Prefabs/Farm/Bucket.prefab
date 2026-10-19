@@ -351,6 +351,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _itemInstance: {fileID: 11400000, guid: 40448d04185c7bf46b555f298328be1b, type: 2}
+  _spriteRenderer: {fileID: 0}
+  _isInfinite: 1
+  _audioSucess: {fileID: 26045565381011197, guid: 32cb7f50f17ec1743ad95abebfbc15db, type: 3}
+  _audioFail: {fileID: 26045565381011197, guid: 584bad9307d48bd4fb05b82f7c59c1e7, type: 3}
 --- !u!1 &8847449352696977508
 GameObject:
   m_ObjectHideFlags: 0

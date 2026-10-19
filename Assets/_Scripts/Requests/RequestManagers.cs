@@ -1,3 +1,4 @@
+using LD60Tec.Commons.Singletons;
 using LD60Tec.Score;
 using System;
 using System.Collections.Generic;
@@ -95,6 +96,11 @@ namespace LD60Tec.Requests
         public int Failures => _failures;
         public int MaxFailures => _maxFailures;
         public bool IsRunning => _running;
+
+        [SerializeField]
+        private GameObject _gameOverSound;
+        [SerializeField]
+        private GameObject _expiredRequest;
 
         private void Awake()
         {
@@ -305,9 +311,14 @@ namespace LD60Tec.Requests
             print("Expired");
             if (_failures >= _maxFailures)
             {
+                SoundPool.PlayAt(_gameOverSound, transform.position);
                 _running = false;
                 OnGameLost?.Invoke();
                 print("GAME ENDED");
+            }
+            else
+            {
+                SoundPool.PlayAt(_expiredRequest, transform.position);
             }
         }
     }

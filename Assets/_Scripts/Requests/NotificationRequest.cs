@@ -1,3 +1,4 @@
+using LD60Tec.Commons.Singletons;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace LD60Tec.Requests
         [SerializeField]
         private Image _image;
         private Coroutine _notificationCoroutine;
+        [SerializeField]
+        private GameObject _notificationSound;
         void Start()
         {
             _image.enabled = false;
@@ -25,7 +28,11 @@ namespace LD60Tec.Requests
             if (_notificationCoroutine != null)
                 StopCoroutine(_notificationCoroutine);
 
-            _notificationCoroutine = StartCoroutine(ShowNotification());
+            if (gameObject.activeInHierarchy)
+            {
+                _notificationCoroutine = StartCoroutine(ShowNotification());
+            }
+            SoundPool.PlayAt(_notificationSound, transform.position);
         }
 
         private IEnumerator ShowNotification()

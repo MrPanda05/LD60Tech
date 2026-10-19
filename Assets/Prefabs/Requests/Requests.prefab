@@ -938,6 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _image: {fileID: 3018062098772208381}
+  _notificationSound: {fileID: 26045565381011197, guid: 6adfb020dc6129b4a863a6aacdb76249, type: 3}
 --- !u!1 &9063280095401666629
 GameObject:
   m_ObjectHideFlags: 0

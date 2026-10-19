@@ -19,6 +19,7 @@ namespace LD60Tec.LePlayer
         private InputAction _move;
         private InputAction _interact;
         private InputAction _jump;
+        private InputAction _esc;
         public Vector2 Movement { get; private set; }
         [field: SerializeField]
         public InteractorComponent Interactror { get; private set; }
@@ -28,6 +29,9 @@ namespace LD60Tec.LePlayer
         [SerializeField]
         private float _jumpForce = 100;
         private bool _isOnOneWay;
+        public static event Action OnPaused;
+        public static event Action OnUnPaused;
+        private bool _ispaused = false;
 
         private void Awake()
         {
@@ -35,14 +39,26 @@ namespace LD60Tec.LePlayer
             _move = _playerActions.FindAction("Move");
             _interact = _playerActions.FindAction("Interact");
             _jump = _playerActions.FindAction("Jump");
+            _esc = _playerActions.FindAction("Esc");
             _playerActions.Enable();
 
+        }
+        public static void Unpause()
+        {
+            OnUnPaused?.Invoke();
         }
         private void Start()
         {
             _playerActions.Enable();
             RequestManagers.Instance.OnGameLost += DisableMovement;
+            OnUnPaused += StopPause;
         }
+
+        private void StopPause()
+        {
+            _ispaused = false;
+        }
+
         public void DisableMovement()
         {
             _playerActions.Disable();
@@ -81,16 +97,33 @@ namespace LD60Tec.LePlayer
         {
             _interact.started += OnInteract;
             _jump.started += Jump;
+            _esc.started += ShowSettings;
+
+        }
+
+        private void ShowSettings(InputAction.CallbackContext context)
+        {
+            if (_ispaused)
+            {
+                _ispaused = false;
+                OnUnPaused?.Invoke();
+            }
+            else
+            {
+                _ispaused = true;
+                OnPaused?.Invoke();
+            }
         }
 
         private void Jump(InputAction.CallbackContext context)
         {
-            if (!_isGrounded) return;
+            if (!_isGrounded || _ispaused) return;
             _rg.AddForceY(_jumpForce, ForceMode2D.Impulse);
         }
 
         private void OnInteract(InputAction.CallbackContext context)
         {
+            if (_ispaused) return;
             Debug.Log($"[1] Interact pressed, frame {Time.frameCount}");
             Interactror.UseInteraction(this);
         }
@@ -102,7 +135,7 @@ namespace LD60Tec.LePlayer
         }
         public void Move()
         {
-            if (_rg == null) return;
+            if (_rg == null || _ispaused) return;
             _rg.linearVelocity = new Vector2(Movement.x * _speed, _rg.linearVelocityY);
         }
         private void Update()

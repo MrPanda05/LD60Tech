@@ -169,6 +169,8 @@ MonoBehaviour:
   _itemInstance: {fileID: 11400000, guid: 1d55cb31d85639b42aa14482abac62d9, type: 2}
   _spriteRenderer: {fileID: 5274517110594075851}
   _isInfinite: 1
+  _audioSucess: {fileID: 26045565381011197, guid: cf7482bb595969f439b593f8bd591922, type: 3}
+  _audioFail: {fileID: 26045565381011197, guid: 584bad9307d48bd4fb05b82f7c59c1e7, type: 3}
 --- !u!1 &5514967572392503448
 GameObject:
   m_ObjectHideFlags: 0

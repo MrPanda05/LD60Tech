@@ -887,6 +887,8 @@ MonoBehaviour:
   <TextCount>k__BackingField: {fileID: 2335956186526920381}
   <Slider>k__BackingField: {fileID: 1363176939989055720}
   _button: {fileID: 6320883203688691718}
+  _audioSucess: {fileID: 26045565381011197, guid: f502dd5d12096c64ab6edb145fafabc0, type: 3}
+  _audioFail: {fileID: 26045565381011197, guid: 584bad9307d48bd4fb05b82f7c59c1e7, type: 3}
 --- !u!1 &7463789700830251568
 GameObject:
   m_ObjectHideFlags: 0

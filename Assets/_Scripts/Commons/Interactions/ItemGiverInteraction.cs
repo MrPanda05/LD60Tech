@@ -1,3 +1,4 @@
+using LD60Tec.Commons.Singletons;
 using LD60Tec.LePlayer;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ namespace LD60Tec.Commons.Interactions
         private int _maxItems = 3;
         private int _itemCount;
         public int ItemCount => _itemCount;
+        [SerializeField]
+        private GameObject _audioSucess;
+        [SerializeField]
+        private GameObject _audioFail;
 
         private void Start()
         {
@@ -23,6 +28,12 @@ namespace LD60Tec.Commons.Interactions
         }
         public override void Interact(Player player)
         {
+            if (player.Inventory.GetFirst() != null)
+            {
+                SoundPool.PlayAt(_audioFail, transform.position);
+                print("Already Stuff in hand");
+                return;
+            }
             if(!_isInfinite && _itemCount <= 0)
             {
                 print("Items out of stock");
@@ -33,6 +44,7 @@ namespace LD60Tec.Commons.Interactions
                 _itemCount--;
             }
             print("Here is an item");
+            SoundPool.PlayAt(_audioSucess, transform.position);
             player.Inventory.AddItem(_itemInstance);
         }
         public void Restock()

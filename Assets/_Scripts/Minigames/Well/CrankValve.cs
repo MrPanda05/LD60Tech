@@ -1,3 +1,4 @@
+using LD60Tec.Commons.Singletons;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -46,6 +47,9 @@ namespace LD60Tec.Minigames.Well
         private float _dragStartAngle;
         [SerializeField] private InputActionAsset _playerActions;
         private InputAction _click;
+
+        [SerializeField]
+        private GameObject _audioFullCrank;
 
         public void Reset()
         {
@@ -114,6 +118,7 @@ namespace LD60Tec.Minigames.Well
         private void CompleteCrank()
         {
             print("Full");
+            SoundPool.PlayAt(_audioFullCrank, transform.position);
             _armed = false;
             _isDragging = false; // the player has to grab it again, which feels like a real crank
 

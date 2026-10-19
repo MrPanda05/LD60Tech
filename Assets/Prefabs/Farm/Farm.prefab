@@ -221,6 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _farm: {fileID: 7479554856313313150}
+  _audioSucess: {fileID: 26045565381011197, guid: ea959e0d76eb21b4fbce425b343825b0, type: 3}
+  _audioFail: {fileID: 26045565381011197, guid: 584bad9307d48bd4fb05b82f7c59c1e7, type: 3}
 --- !u!212 &7295478392982001361
 SpriteRenderer:
   serializedVersion: 2
@@ -387,6 +389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _farm: {fileID: 7479554856313313150}
+  _audioSucess: {fileID: 26045565381011197, guid: 4b2260890d4fbd64e9b4a3e24dc8be20, type: 3}
+  _audioFail: {fileID: 26045565381011197, guid: 584bad9307d48bd4fb05b82f7c59c1e7, type: 3}
 --- !u!212 &7845399998369704803
 SpriteRenderer:
   serializedVersion: 2
