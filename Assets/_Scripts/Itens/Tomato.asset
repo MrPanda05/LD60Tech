@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c626711e5c20a8945bb66070ae3adb99, type: 3}
+  m_Name: Tomato
+  m_EditorClassIdentifier: Assembly-CSharp::LD60Tec.ItensSO
+  <ItemName>k__BackingField: Tomato
+  <ItemSprite>k__BackingField: {fileID: -3962807554240710951, guid: 642e04f9982de1f41b3dd5436790fc07, type: 3}

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbf59b1b483bb24cb12bc11683925bf, type: 3}
+  m_Name: Tomato Seed
+  m_EditorClassIdentifier: Assembly-CSharp::LD60Tec.SeedSO
+  <ItemName>k__BackingField: Tomato Seed
+  <ItemSprite>k__BackingField: {fileID: -8619915600429378456, guid: 40d6502d74a61ea47840c00f3daf7bb8, type: 3}
+  <ResultPlant>k__BackingField: {fileID: 11400000, guid: 2bd3d19a8ef12c54d9bf3c901908fe62, type: 2}
